@@ -5,6 +5,7 @@ import telegram
 from django.conf import settings
 from django.core.exceptions import PermissionDenied
 from telegram import Bot
+from telegram.constants import ParseMode
 from telegram.error import NetworkError, Forbidden
 
 from bot.models import UsernameId
@@ -38,7 +39,7 @@ def send_message_to_telegram(username, message):
     async def inner():
         async with Bot(settings.BOT_TOKEN) as bot:
             try:
-                await bot.send_message(telegram_id, message)
+                await bot.send_message(telegram_id, message, parse_mode=ParseMode.HTML)
             except NetworkError as e:
                 print(e)
                 await asyncio.sleep(1)

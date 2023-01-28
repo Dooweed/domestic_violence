@@ -10,6 +10,9 @@ class SosRecord(models.Model):
 
     shelter = models.ForeignKey(verbose_name='Шелтер', to='shelters.Shelter', on_delete=models.RESTRICT)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
-        verbose_name = 'SOS заявка'
-        verbose_name_plural = 'SOS заявки'
+        verbose_name = 'Заявка SOS'
+        verbose_name_plural = 'Заявки SOS'

@@ -16,7 +16,7 @@ def telegram_view(request, bot_token):
             update: Update = parse_update(bot, bot_token, request)
 
             if update.effective_user and update.effective_user.username:
-                return update.effective_user.username, update.effective_user.id
+                return dict(username=update.effective_user.username, telegram_id=update.effective_user.id)
 
     try:
         loop = asyncio.get_event_loop()
@@ -25,8 +25,8 @@ def telegram_view(request, bot_token):
 
     result = loop.run_until_complete(inner())
 
-    if result is not None:
-        UsernameId.objects.create(username=result[0], telegram_id=result[1])
+    if result is not None and not UsernameId.objects.filter(**result).exists():
+        UsernameId.objects.create(**result)
 
     return HttpResponse('gut', status=200)
 

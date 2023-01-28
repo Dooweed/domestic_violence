@@ -7,9 +7,9 @@ from shelters.models import Shelter
 from sos_records.models import SosRecord
 
 
-MESSAGE_TEMPLATE = """{name} нажал(а) кнопку SOS
-Адрес: {address}
-Номер телефона: {phone}"""
+MESSAGE_TEMPLATE = """<b>{name}</b> нажал(а) кнопку <b>SOS</b> 🆘
+<b>Адрес:</b> <i>{address}</i>
+<b>Номер телефона:</b> <i>{phone}</i>"""
 
 
 def index_view(request):
