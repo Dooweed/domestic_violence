@@ -2,43 +2,82 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<div class="sos-controls">
-  <button id="sosInitBtn">
-    SoS!
-  </button>
-  <button id="sosSaveBtn">
-    Stop
-  </button>
-  <a id="save" style="display: none"></a>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <img class="navbar-brand" src="{% static 'images/menu-icon.png' %}" alt="">
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Центр помощи</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Инфо</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Комьюнити</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Консультация</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Настройки</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="main justify-content-around d-flex flex-column">
+    <h2 class="heading text-center">Экстренная помощь</h2>
+
+    <div class="sos-controls">
+        <button class="sos-btn text-center" id="sosInitBtn">
+            SOS
+        </button>
+        <div class="inner-background shadow-bg"></div>
+        <div class="outer-background shadow-bg"></div>
+        <button class="sos-btn" id="sosSaveBtn">
+            ◼
+        </button>
+    </div>
+
+    <div class="phones">
+        <div class="d-flex phones-item">
+            <div class="icon">
+                <img src="{% static 'images/mvd.png' %}" alt="">
+            </div>
+            <div class="content">
+                <div class="phone">
+                    1259
+                </div>
+                <div class="name">
+                    Центр доверия МВД
+                </div>
+            </div>
+            <div class="proceed-button">
+                ›
+            </div>
+        </div>
+    </div>
+    <button data-url="{% url 'shelters:shelters_list' %}" id="sheltersBtn">Shelters</button>
 </div>
 
-<script src="{% static 'js/audiodisplay.js' %}"></script>
-<script src="{% static 'js/recorderjs/recorder.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 
-<script>
-    const sosBtn = document.getElementById('sosInitBtn'),
-        saveBtn = document.getElementById('sosSaveBtn');
-
-    function toggleSos(e) {
-        if (toggleRecording(e.target) === 'stopped') {
-            document.querySelector('.sos-controls').classList.remove('active');
-            console.log('Saving');
-            saveAudio();
-        } else {
-            document.querySelector('.sos-controls').classList.add('active');
-        }
-    }
-
-    sosBtn.addEventListener('click', toggleSos)
-    saveBtn.addEventListener('click', toggleSos)
-</script>
 </body>
 </html>

@@ -1,10 +1,56 @@
-.sos-controls #sosSaveBtn {
+nav.navbar {
+  background-color: #F0C8C8;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+nav.navbar .navbar-toggler {
+  border: 0;
+}
+nav.navbar .navbar-toggler .navbar-brand {
+  height: 22px;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  height: calc(100vh - 48px);
+}
+.main .heading {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+}
+.main .sos-controls .sos-btn {
+  background: linear-gradient(180deg, #BF5959 0%, #A90000 100%);
+  width: 220px;
+  height: 220px;
+  color: #FFF;
+}
+.main .sos-controls .shadow-bg {
+  position: absolute;
+  top: 0;
+}
+.main .sos-controls .inner-background {
+  background: linear-gradient(180deg, rgba(191, 89, 89, 0.3) 0%, rgba(169, 0, 0, 0.3) 100%);
+  border: 1px solid #CE3939;
+  width: 270px;
+  height: 270px;
+}
+.main .sos-controls .outer-background {
+  background: linear-gradient(180deg, rgba(191, 89, 89, 0.15) 0%, rgba(169, 0, 0, 0.15) 100%);
+  border: 1px solid #CE3939;
+  width: 310px;
+  height: 310px;
+}
+.main .sos-controls #sosSaveBtn {
   display: none;
 }
-.sos-controls.active #sosInitBtn {
+.main .sos-controls.active #sosInitBtn {
   display: none;
 }
-.sos-controls.active #sosSaveBtn {
+.main .sos-controls.active #sosSaveBtn {
   display: block;
 }
 
