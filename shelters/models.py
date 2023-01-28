@@ -14,6 +14,11 @@ class Shelter(models.Model):
     def location(self):
         return self.latitude, self.longitude
 
+    @property
+    def phone(self):
+        contact_info = self.sheltercontactinfo_set.first()
+        return '-' if contact_info is None or contact_info.phone is None else contact_info.phone
+
     class Meta:
         verbose_name = 'Шелтер'
         verbose_name_plural = 'Шелтеры'

@@ -100,18 +100,4 @@ function makeLink(chunks, mediaConfig) {
     hf.click();
 }
 
-const sheltersBtn = document.getElementById('sheltersBtn');
-sheltersBtn.addEventListener('click', function (e) {
-    navigator.geolocation.getCurrentPosition((position) => {
-        window.location = sheltersBtn.getAttribute('data-url') + `?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
-    })
-})
 
-
-// Navbar
-document.querySelector('.navbar-toggler').addEventListener('click', (e) => {
-    document.querySelector('.navbar-collapse').classList.toggle('show');
-})
-document.querySelector('.navbar-placeholder').addEventListener('click', (e) => {
-    document.querySelector('.navbar-collapse').classList.toggle('show');
-})

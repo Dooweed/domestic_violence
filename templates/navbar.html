@@ -1,0 +1,64 @@
+{% load static %}
+
+<div class="collapse navbar-collapse">
+  <div class="navbar-inner d-flex flex-column justify-content-between">
+    <div>
+      <div class="user d-flex justify-content-center">
+        <div class="avatar">
+          <img src="{% static 'images/avatar.png' %}" alt="">
+        </div>
+
+        <div class="info">
+          <div id="name" class="name">
+            Муниса Хакимова
+          </div>
+          <div id="phone" class="phone">
+            +998 90 123 45 67
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <img src="{% static 'images/operator-icon.png' %}" alt="" class="icon">
+          <a class="nav-link" id="sheltersBtn" data-url="{% url 'shelters:shelters_list' %}">Центр помощи</a>
+        </li>
+        <li class="nav-item">
+          <img src="{% static 'images/info-icon.png' %}" alt="" class="icon">
+          <a class="nav-link" href="#">Инфо</a>
+        </li>
+        <li class="nav-item">
+          <img src="{% static 'images/community-icon.png' %}" alt="" class="icon">
+          <a class="nav-link" href="#">Комьюнити</a>
+        </li>
+        <li class="nav-item">
+          <img src="{% static 'images/message-icon.png' %}" alt="" class="icon">
+          <a class="nav-link" href="#">Консультация</a>
+        </li>
+      </ul>
+    </div>
+
+    <ul class="navbar-nav mb-2 mb-lg-0">
+      <li class="nav-item">
+        <img src="{% static 'images/settings.png' %}" alt="" class="icon">
+        <a class="nav-link" href="#">Настройки</a>
+      </li>
+      <li class="nav-item">
+        <img src="{% static 'images/exit-icon.png' %}" alt="" class="icon">
+        <a class="nav-link" href="#">Выход</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-placeholder"></div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <img class="navbar-brand" src="{% static 'images/menu-icon.png' %}" alt="">
+    </button>
+  </div>
+</nav>
+
+<script src="{% static 'js/navbar.js' %}"></script>

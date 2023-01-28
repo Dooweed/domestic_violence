@@ -1,12 +1,13 @@
 nav.navbar {
   background-color: #F0C8C8;
+  min-height: 69px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 nav.navbar .navbar-toggler {
   border: 0;
 }
 nav.navbar .navbar-toggler .navbar-brand {
-  height: 22px;
+  height: 24px;
   width: 100%;
   padding: 0;
   margin: 0;
@@ -39,9 +40,22 @@ nav.navbar .navbar-toggler .navbar-brand {
   width: 30%;
   height: 100vh;
 }
+.navbar-collapse .navbar-nav {
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
 .navbar-collapse .navbar-nav .nav-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   border-bottom: 1px solid #E8E8E8;
-  padding: 16px 40px;
+  padding: 16px 0;
+}
+.navbar-collapse .navbar-nav .nav-item .icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
 }
 .navbar-collapse .navbar-nav .nav-item .nav-link {
   font-family: "Inter", sans-serif;
@@ -87,7 +101,7 @@ nav.navbar .navbar-toggler .navbar-brand {
 }
 
 .main {
-  height: calc(100vh - 48px);
+  height: calc(100vh - 69px);
 }
 .main .heading {
   font-family: "Inter", sans-serif;
@@ -223,6 +237,68 @@ nav.navbar .navbar-toggler .navbar-brand {
 }
 .main .phones .phones-item:last-child {
   margin-bottom: 0;
+}
+
+.shelters_list {
+  min-height: calc(100vh - 69px);
+  padding: 0 40px;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+.shelters_list .heading {
+  height: 68px;
+  width: 100%;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 30px;
+  padding: 22px 24px;
+  margin-top: 40px;
+  margin-bottom: 32px;
+}
+.shelters_list .heading h2 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #212126;
+  margin: 0;
+}
+.shelters_list .heading .filter {
+  background: #F92D2D;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  border-radius: 18px;
+}
+.shelters_list .heading .filter img {
+  margin-top: -2px;
+  width: 24px;
+  height: 24px;
+}
+.shelters_list .shelters .shelter-item {
+  padding: 16px 0;
+  border-bottom: 1px solid #EEEEEE;
+}
+.shelters_list .shelters .shelter-item:last-child {
+  border-bottom: 0;
+}
+.shelters_list .shelters .shelter-item .name {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #212126;
+}
+.shelters_list .shelters .shelter-item .secondary-info {
+  margin-top: 10px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #989898;
 }
 
 /*# sourceMappingURL=style.css.map */

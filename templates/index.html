@@ -1,122 +1,60 @@
+{% extends 'base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
 
-<div class="collapse navbar-collapse">
-  <div class="navbar-inner">
-    <div class="user d-flex justify-content-center">
-      <div class="avatar">
-        <img src="{% static 'images/avatar.png' %}" alt="">
-      </div>
 
-      <div class="info">
-        <div id="name" class="name">
-          Муниса Хакимова
-        </div>
-        <div id="phone" class="phone">
-          +998 90 123 45 67
-        </div>
-      </div>
+{% block main %}
+  <div class="main justify-content-around d-flex flex-column">
+    <h2 class="heading text-center">Экстренная помощь</h2>
+
+    <div class="sos-controls">
+      <button class="sos-btn text-center" id="sosInitBtn" data-url="{% url "sos_records:sos_request" %}">
+        SOS
+      </button>
+      <button class="sos-btn" id="sosSaveBtn">
+        <img src="{% static 'images/stop-icon.png' %}" alt="">
+      </button>
+      <div class="inner-background shadow-bg"></div>
+      <div class="outer-background shadow-bg"></div>
     </div>
 
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" id="sheltersBtn" data-url="{% url 'shelters:shelters_list' %}">Центр помощи</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Инфо</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Комьюнити</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Консультация</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Настройки</a>
-      </li>
-    </ul>
-  </div>
-  <div class="navbar-placeholder"></div>
-</div>
+    <div class="phones">
 
-<nav class="navbar navbar-expand-lg navbar-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <img class="navbar-brand" src="{% static 'images/menu-icon.png' %}" alt="">
-    </button>
-  </div>
-</nav>
-
-
-<div class="main justify-content-around d-flex flex-column">
-  <h2 class="heading text-center">Экстренная помощь</h2>
-
-  <div class="sos-controls">
-    <button class="sos-btn text-center" id="sosInitBtn" data-url="{% url "sos_records:sos_request" %}">
-      SOS
-    </button>
-    <button class="sos-btn" id="sosSaveBtn">
-      <img src="{% static 'images/stop-icon.png' %}" alt="">
-    </button>
-    <div class="inner-background shadow-bg"></div>
-    <div class="outer-background shadow-bg"></div>
-  </div>
-
-  <div class="phones">
-
-    <div class="phones-item" onclick="window.open('tel:1259')">
-      <div class="icon">
-        <img src="{% static 'images/phone-icon.png' %}" alt="">
-      </div>
-      <div class="content">
-        <div class="phone">
-          1259
+      <div class="phones-item" onclick="window.open('tel:1259')">
+        <div class="icon">
+          <img src="{% static 'images/phone-icon.png' %}" alt="">
         </div>
-        <div class="name">
-          Центр доверия МВД
+        <div class="content">
+          <div class="phone">
+            1259
+          </div>
+          <div class="name">
+            Центр доверия МВД
+          </div>
+        </div>
+        <div class="gap"></div>
+        <div class="proceed-button">
+          <img src="{% static 'images/chevron-right.png' %}" alt="">
         </div>
       </div>
-      <div class="gap"></div>
-      <div class="proceed-button">
-        <img src="{% static 'images/chevron-right.png' %}" alt="">
+
+      <div class="phones-item" onclick="window.open('tel:1146')">
+        <div class="icon">
+          <img src="{% static 'images/chat-icon.png' %}" alt="">
+        </div>
+        <div class="content">
+          <div class="phone">
+            1146
+          </div>
+          <div class="name">
+            Телефон доверия женщин
+          </div>
+        </div>
+        <div class="gap"></div>
+        <div class="proceed-button">
+          <img src="{% static 'images/chevron-right.png' %}" alt="">
+        </div>
       </div>
+
     </div>
-
-    <div class="phones-item" onclick="window.open('tel:1146')">
-      <div class="icon">
-        <img src="{% static 'images/chat-icon.png' %}" alt="">
-      </div>
-      <div class="content">
-        <div class="phone">
-          1146
-        </div>
-        <div class="name">
-          Телефон доверия женщин
-        </div>
-      </div>
-      <div class="gap"></div>
-      <div class="proceed-button">
-        <img src="{% static 'images/chevron-right.png' %}" alt="">
-      </div>
-    </div>
-
   </div>
-</div>
-
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
-
-</body>
-</html>
+{% endblock %}

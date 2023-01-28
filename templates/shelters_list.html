@@ -1,28 +1,29 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Location</th>
-        <th>Distance</th>
-    </tr>
-    {% for shelter in shelters %}
-        <tr>
-            <td>{{ shelter.name }}</td>
-            <td>{{ shelter.address }}</td>
-            <td>{{ shelter.location }}</td>
-            <td>{{ shelter.distance }}</td>
-        </tr>
-    {% endfor %}
-</table>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main %}
+  <div class="shelters_list">
+
+    <div class="heading d-flex justify-content-between align-items-center">
+      <h2>Центры помощи</h2>
+      <div class="filter">
+        <img src="{% static 'images/filter-icon.png' %}" alt="">
+      </div>
+    </div>
+
+
+    <div class="shelters">
+      {% for shelter in shelters %}
+        <div class="shelter-item">
+          <div class="name">{{ shelter.name }}</div>
+          <div class="d-flex justify-content-between">
+            <div class="secondary-info phone" {% if shelter.phone != '-' %}onclick="window.open('tel:{{ shelter.phone }}')" {% endif %}>{{ shelter.phone }}</div>
+            <div class="secondary-info distance">{{ shelter.distance }} km</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,10 +1,14 @@
+$nav_height: 69px
+
+
 nav.navbar
   background-color: #F0C8C8
+  min-height: $nav_height
 
   .navbar-toggler
     border: 0
     .navbar-brand
-      height: 22px
+      height: 24px
       width: 100%
       padding: 0
       margin: 0
@@ -39,9 +43,21 @@ nav.navbar
     height: 100vh
 
   .navbar-nav
+    width: 80%
+    margin: 0 auto
+    padding-bottom: 30px
+
     .nav-item
+      display: flex
+      justify-content: start
+      align-items: center
       border-bottom: 1px solid #E8E8E8
-      padding: 16px 40px
+      padding: 16px 0
+
+      .icon
+        width: 24px
+        height: 24px
+        margin-right: 10px
 
       .nav-link
         font-family: 'Inter', sans-serif
@@ -86,7 +102,7 @@ nav.navbar
 
 
 .main
-  height: calc(100vh - 48px)
+  height: calc(100vh - #{$nav_height})
 
   .heading
     font-family: 'Inter', sans-serif
@@ -227,4 +243,69 @@ nav.navbar
 
       &:last-child
         margin-bottom: 0
+
+
+.shelters_list
+  min-height: calc(100vh - #{$nav_height})
+  padding: 0 40px
+  max-width: 700px
+  margin: 0 auto 20px
+
+  .heading
+    height: 68px
+    width: 100%
+    background: #FFFFFF
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15)
+    border-radius: 30px
+    padding: 22px 24px
+    margin-top: 40px
+    margin-bottom: 32px
+
+    h2
+      font-family: 'Inter', sans-serif
+      font-style: normal
+      font-weight: 600
+      font-size: 20px
+      line-height: 24px
+      color: #212126
+      margin: 0
+
+    .filter
+      background: #F92D2D
+      width: 36px
+      height: 36px
+      padding: 6px
+      border-radius: 18px
+
+      img
+        margin-top: -2px
+        width: 24px
+        height: 24px
+
+  .shelters
+
+    .shelter-item
+      padding: 16px 0
+      border-bottom: 1px solid #EEEEEE
+
+      &:last-child
+        border-bottom: 0
+
+      .name
+        font-family: 'Inter', sans-serif
+        font-style: normal
+        font-weight: 400
+        font-size: 16px
+        line-height: 19px
+
+        color: #212126
+
+      .secondary-info
+        margin-top: 10px
+        font-family: 'Inter', sans-serif
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 17px
+        color: #989898
 
