@@ -9,12 +9,36 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-  <button id="sosBtn">
-    PressMe!
+<div class="sos-controls">
+  <button id="sosInitBtn">
+    SoS!
   </button>
+  <button id="sosSaveBtn">
+    Stop
+  </button>
+  <a id="save" style="display: none"></a>
+</div>
 
-  <script src="{% static 'js/audiodisplay.js' %}"></script>
-	<script src="{% static 'js/recorderjs/recorder.js' %}"></script>
-	<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/audiodisplay.js' %}"></script>
+<script src="{% static 'js/recorderjs/recorder.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script>
+    const sosBtn = document.getElementById('sosInitBtn'),
+        saveBtn = document.getElementById('sosSaveBtn');
+
+    function toggleSos(e) {
+        if (toggleRecording(e.target) === 'stopped') {
+            document.querySelector('.sos-controls').classList.remove('active');
+            console.log('Saving');
+            saveAudio();
+        } else {
+            document.querySelector('.sos-controls').classList.add('active');
+        }
+    }
+
+    sosBtn.addEventListener('click', toggleSos)
+    saveBtn.addEventListener('click', toggleSos)
+</script>
 </body>
 </html>

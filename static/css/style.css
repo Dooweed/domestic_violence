@@ -1,0 +1,11 @@
+.sos-controls #sosSaveBtn {
+  display: none;
+}
+.sos-controls.active #sosInitBtn {
+  display: none;
+}
+.sos-controls.active #sosSaveBtn {
+  display: block;
+}
+
+/*# sourceMappingURL=style.css.map */
