@@ -2,8 +2,14 @@ import geopy.distance
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from bot.utils import send_message_to_telegram
 from shelters.models import Shelter
 from sos_records.models import SosRecord
+
+
+MESSAGE_TEMPLATE = """{name} нажал(а) кнопку SOS
+Адрес: {address}
+Номер телефона: {phone}"""
 
 
 def index_view(request):
@@ -34,6 +40,9 @@ def sos_request(request):
     print(closest_shelter)
     sos_record = SosRecord.objects.create(**data, shelter=closest_shelter)
 
-    # TODO: send message in telegram
+    message = MESSAGE_TEMPLATE.format(name=data['name'], address=data['address'], phone=data['phone'])
+    for contact in closest_shelter.sheltercontactinfo_set.all():
+        if contact.telegram:
+            send_message_to_telegram(contact.telegram.replace('@', ''), message)
 
     return HttpResponse({'success': closest_shelter}, status=200)

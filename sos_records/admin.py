@@ -5,4 +5,4 @@ from sos_records.models import SosRecord
 
 @admin.register(SosRecord)
 class SosRecordAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'shelter')
+    list_display = ('name', 'address', 'phone', 'shelter')

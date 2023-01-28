@@ -2,3 +2,6 @@ run
 .idea
 
 *.sqlite3
+
+ngrok.exe
+.env

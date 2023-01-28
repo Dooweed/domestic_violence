@@ -57,7 +57,7 @@ const sosInitBtn = document.getElementById('sosInitBtn'),
     address = 'Ул. Кары-Ниязи 17а подъезд 2 квартира 33';
 
 sosInitBtn.onclick = e => {
-    let url = sosInitBtn.getAttribute('data-url') + `?address=${address}&name=${nameTag.innerText}&phone=${phoneTag}`;
+    let url = sosInitBtn.getAttribute('data-url') + `?address=${address}&name=${nameTag.innerText}&phone=${phoneTag.innerText}`;
 
     navigator.geolocation.getCurrentPosition((position) => {
         url += `&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
