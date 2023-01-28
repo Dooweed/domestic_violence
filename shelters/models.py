@@ -11,7 +11,7 @@ class Shelter(models.Model):
         return self.name
 
     @property
-    def location(self) -> tuple[float, float]:
+    def location(self):
         return self.latitude, self.longitude
 
     class Meta:
