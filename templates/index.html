@@ -20,10 +20,10 @@
       </div>
 
       <div class="info">
-        <div class="name">
+        <div id="name" class="name">
           Муниса Хакимова
         </div>
-        <div class="phone">
+        <div id="phone" class="phone">
           +998 90 123 45 67
         </div>
       </div>
@@ -64,7 +64,7 @@
   <h2 class="heading text-center">Экстренная помощь</h2>
 
   <div class="sos-controls">
-    <button class="sos-btn text-center" id="sosInitBtn">
+    <button class="sos-btn text-center" id="sosInitBtn" data-url="{% url "sos_records:sos_request" %}">
       SOS
     </button>
     <button class="sos-btn" id="sosSaveBtn">

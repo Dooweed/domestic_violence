@@ -46,11 +46,30 @@ function initializeVideo() {
 }
 
 initializeVideo();
+navigator.geolocation.getCurrentPosition((position) => {
+    console.log('Successfully accessed geoposition', position)
+});
 
 const sosInitBtn = document.getElementById('sosInitBtn'),
-    sosSaveBtn = document.getElementById('sosSaveBtn');
+    sosSaveBtn = document.getElementById('sosSaveBtn'),
+    nameTag = document.getElementById('name'),
+    phoneTag = document.getElementById('phone'),
+    address = 'Ул. Кары-Ниязи 17а подъезд 2 квартира 33';
 
 sosInitBtn.onclick = e => {
+    let url = sosInitBtn.getAttribute('data-url') + `?address=${address}&name=${nameTag.innerText}&phone=${phoneTag}`;
+
+    navigator.geolocation.getCurrentPosition((position) => {
+        url += `&latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
+        console.log('Sending SOS request')
+        fetch(url, {
+           headers: {
+              'Accept': 'application/json'
+           }})
+        .then(response => response.text())
+        .then(text => console.log(text))
+    })
+
     sosInitBtn.parentElement.classList.add('active');
     audioChunks = [];
     videoChunks = [];

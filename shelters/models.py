@@ -26,6 +26,9 @@ class ShelterContactInfo(models.Model):
     phone = models.CharField('Тел. номер', max_length=20, null=True, blank=True)
     telegram = models.CharField('Телеграм юзернейм', max_length=120, null=True, blank=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = 'Контактная информация'
         verbose_name_plural = 'Контактная информация'
