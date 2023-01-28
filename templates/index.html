@@ -31,7 +31,7 @@
 
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link" href="#">Центр помощи</a>
+        <a class="nav-link" id="sheltersBtn" data-url="{% url 'shelters:shelters_list' %}">Центр помощи</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Инфо</a>
@@ -113,7 +113,6 @@
     </div>
 
   </div>
-  {#  <button data-url="{% url 'shelters:shelters_list' %}" id="sheltersBtn">Shelters</button>#}
 </div>
 
 <script src="{% static 'js/bootstrap.min.js' %}"></script>

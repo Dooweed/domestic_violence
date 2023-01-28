@@ -1,7 +1,7 @@
 let audioStream, videoStream,
     audioRecorder, videoRecorder,
     audioChunks, videoChunks,
-    counter = 0,
+    counter = 1,
     log = console.log.bind(console);
 
 const videoConfig = {
@@ -63,30 +63,30 @@ sosSaveBtn.onclick = e => {
     sosInitBtn.parentElement.classList.remove('active');
     audioRecorder.stop();
     videoRecorder.stop();
+    counter++;
 }
 
 
 function makeLink(chunks, mediaConfig) {
-    let blob = new Blob(chunks, {type: mediaConfig.type})
-        , url = URL.createObjectURL(blob)
-        , li = document.createElement('li')
-        , mt = document.createElement(mediaConfig.tag)
-        , hf = document.createElement('a')
-    ;
+    let blob = new Blob(chunks, {type: mediaConfig.type}),
+        url = URL.createObjectURL(blob),
+        li = document.createElement('li'),
+        mt = document.createElement(mediaConfig.tag),
+        hf = document.createElement('a');
     mt.controls = true;
     mt.src = url;
     hf.href = url;
-    hf.download = `${counter++}${mediaConfig.ext}`;
+    hf.download = `${mediaConfig.tag}${counter}${mediaConfig.ext}`;
     hf.innerHTML = `donwload ${hf.download}`;
     hf.click();
 }
 
-// const sheltersBtn = document.getElementById('sheltersBtn');
-// sheltersBtn.addEventListener('click', function (e) {
-//     navigator.geolocation.getCurrentPosition((position) => {
-//         window.location = sheltersBtn.getAttribute('data-url') + `?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
-//     })
-// })
+const sheltersBtn = document.getElementById('sheltersBtn');
+sheltersBtn.addEventListener('click', function (e) {
+    navigator.geolocation.getCurrentPosition((position) => {
+        window.location = sheltersBtn.getAttribute('data-url') + `?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`
+    })
+})
 
 
 // Navbar
