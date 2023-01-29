@@ -43,6 +43,6 @@ def sos_request(request):
     message = MESSAGE_TEMPLATE.format(name=data['name'], address=data['address'], phone=data['phone'])
     for contact in closest_shelter.sheltercontactinfo_set.all():
         if contact.telegram:
-            send_message_to_telegram(contact.telegram.replace('@', ''), message)
+            send_message_to_telegram(contact.telegram.replace('@', ''), message, user_location)
 
     return HttpResponse({'success': closest_shelter}, status=200)

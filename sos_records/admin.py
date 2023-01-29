@@ -8,4 +8,6 @@ admin.site.site_header = 'Be Safe'
 
 @admin.register(SosRecord)
 class SosRecordAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'phone', 'shelter')
+    list_display = ('name', 'address', 'phone', 'shelter', 'status')
+    list_editable = ('status',)
+

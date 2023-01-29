@@ -33,13 +33,14 @@ def parse_update(bot: telegram.Bot, request_token: str, request) -> telegram.Upd
     return update
 
 
-def send_message_to_telegram(username, message):
+def send_message_to_telegram(username, message, location):
     telegram_id = UsernameId.objects.get(username=username).telegram_id
 
     async def inner():
         async with Bot(settings.BOT_TOKEN) as bot:
             try:
                 await bot.send_message(telegram_id, message, parse_mode=ParseMode.HTML)
+                await bot.send_location(telegram_id, latitude=location[0], longitude=location[1])
             except NetworkError as e:
                 print(e)
                 await asyncio.sleep(1)
