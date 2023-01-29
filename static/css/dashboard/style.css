@@ -1,3 +1,19 @@
+.table > :not(caption) > * > * {
+  background-color: rgba(240, 200, 200, 0.4);
+}
 
+.bg-custom {
+  background-color: #d32f2f;
+}
+
+.nav-link, .navbar-brand {
+  color: #fff !important;
+  background-color: transparent !important;
+}
+.nav-link img, .navbar-brand img {
+  background-color: transparent !important;
+  height: 40px;
+  width: auto;
+}
 
 /*# sourceMappingURL=style.css.map */

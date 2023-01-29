@@ -52,3 +52,7 @@ def sos_records_list(request):
     sos_records = SosRecord.objects.all()
 
     return render(request, 'dashboard/sos_records.html', {'records': sos_records})
+
+
+def dashboard(request):
+    return render(request, 'dashboard/dashboard.html')
