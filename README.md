@@ -1,4 +1,4 @@
-# Dubby - online dubbing service
+# BeSafe. - Life free from abuse
 
 ## Instructions
 1. Clone repository
