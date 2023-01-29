@@ -9,7 +9,7 @@ def shelters_list(request):
     if None in user_location:
         raise ValueError('Latitude and/or longitude were not provided')
 
-    shelters = Shelter.objects.all()
+    shelters = Shelter.objects.all().prefetch_related('sheltercontactinfo_set')
     for shelter in shelters:
         shelter.distance = round(geopy.distance.geodesic(shelter.location, user_location).km, ndigits=1)
 
