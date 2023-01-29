@@ -46,3 +46,9 @@ def sos_request(request):
             send_message_to_telegram(contact.telegram.replace('@', ''), message, user_location)
 
     return HttpResponse({'success': closest_shelter}, status=200)
+
+
+def sos_records_list(request):
+    sos_records = SosRecord.objects.all()
+
+    return render(request, 'dashboard/sos_records.html', {'records': sos_records})

@@ -1,0 +1,25 @@
+{% extends 'dashboard/base.html' %}
+
+
+{% block main %}
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>Имя</th>
+      <th>Адрес</th>
+      <th>Телефон</th>
+      <th>Локация</th>
+      <th>Статус</th>
+    </tr>
+    {% for record in records %}
+      <tr>
+        <td>{{ record.id }}</td>
+        <td>{{ record.name }}</td>
+        <td>{{ record.address }}</td>
+        <td>{{ record.phone }}</td>
+        <td><a href="https://www.google.com/maps/@{{ record.latitude }},{{ record.longitude }},15z">Локация</a></td>
+        <td>{{ record.get_status_display }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

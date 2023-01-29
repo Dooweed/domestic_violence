@@ -16,7 +16,7 @@
     <div class="shelters">
       {% for shelter in shelters %}
         <div class="shelter-item">
-          <div class="name">{{ shelter.name }}</div>
+          <div class="name" onclick="window.location = 'https://www.google.com/maps/@{{ shelter.latitude }},{{ shelter.longitude }},15z'">{{ shelter.name }}</div>
           <div class="d-flex justify-content-between">
             <div class="secondary-info phone" {% if shelter.phone != '-' %}onclick="window.open('tel:{{ shelter.phone }}')" {% endif %}>{{ shelter.phone }}</div>
             <div class="secondary-info distance">{{ shelter.distance }} km</div>
